@@ -278,6 +278,29 @@
     </div>
   </section>
 
+  <section class="section section-dark" id="methods">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Science</span>
+        <h2 class="section-title">Technical Approach</h2>
+      </div>
+      <div class="methods-grid">
+        <div class="method-card">
+          <h3>Problem Statement</h3>
+          <p>Pathologists examine thousands of tissue slides daily to detect cancer. This is time-intensive and prone to inter-observer variability. AI models can pre-screen slides to flag suspicious regions, reducing workload and improving early detection rates.</p>
+        </div>
+        <div class="method-card">
+          <h3>Transfer Learning</h3>
+          <p>EfficientNetB0 was pre-trained on 1.2M ImageNet images, learning general visual features (edges, textures, shapes). We fine-tune this on histopathology to adapt these features to cell morphology without needing millions of medical images.</p>
+        </div>
+        <div class="method-card">
+          <h3>Grad-CAM Explainability</h3>
+          <p>Clinical AI must be explainable. Grad-CAM computes the gradient of the predicted class with respect to feature map activations, creating a heatmap that highlights the exact regions (cells) that drove the malignant prediction.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="references">
     <div class="container">
       <div class="section-header">
