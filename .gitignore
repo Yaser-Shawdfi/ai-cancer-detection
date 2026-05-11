@@ -1,0 +1,34 @@
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Datasets (Extremely large HDF5 files)
+data/
+*.h5
+*.h5.gz
+
+# Models (PyTorch weights exceed GitHub limits)
+models/
+*.pth
+*.pt
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Logs & Temp Files
+results/logs/
+*.log
+.tempmediaStorage/
+scratch/
+model_and_results.zip

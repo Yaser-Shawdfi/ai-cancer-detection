@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Cancer Detection | Histopathology Analysis Dashboard</title>
+  <meta name="description" content="AI-powered cancer cell detection from histopathology tissue slides using deep learning — inspired by PathAI and Paige.AI." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <span class="logo-icon">🔬</span>
+        <span class="logo-text">AI Cancer Detection</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#hero" class="nav-link active">Home</a></li>
+        <li><a href="#pipeline" class="nav-link">Pipeline</a></li>
+        <li><a href="#results" class="nav-link">Results</a></li>
+        <li><a href="#explorer" class="nav-link">Sample Explorer</a></li>
+        <li><a href="#methods" class="nav-link">Methods</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero" id="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-orb orb-1"></div>
+    <div class="hero-orb orb-2"></div>
+    <div class="container hero-content">
+      <span class="hero-badge">🧬 AI × Pathology</span>
+      <h1 class="hero-title">
+        Detecting Cancer in<br/>
+        <span class="gradient-text">Tissue Slides</span><br/>
+        with Deep Learning
+      </h1>
+      <p class="hero-subtitle">
+        An AI system that classifies histopathology patches as <strong>malignant or normal</strong>
+        — trained on over 300,000 real H&E-stained lymph node images from the
+        <a href="https://patchcamelyon.grand-challenge.org/" target="_blank" class="ref-link">PatchCamelyon benchmark</a>.
+        Inspired by <a href="https://www.pathai.com/" target="_blank" class="ref-link">PathAI</a> and
+        <a href="https://paige.ai/" target="_blank" class="ref-link">Paige.AI</a>.
+      </p>
+      <div class="hero-stats" id="heroStats">
+        <div class="stat-card"><span class="stat-num" id="statAcc">—</span><span class="stat-lbl">Accuracy</span></div>
+        <div class="stat-card"><span class="stat-num" id="statAuc">—</span><span class="stat-lbl">ROC-AUC</span></div>
+        <div class="stat-card"><span class="stat-num">300K+</span><span class="stat-lbl">Real Tissue Images</span></div>
+        <div class="stat-card"><span class="stat-num">96×96</span><span class="stat-lbl">Patch Resolution</span></div>
+      </div>
+      <div class="hero-cta">
+        <a href="#results" class="btn-primary">View AI Results</a>
+        <a href="#explorer" class="btn-secondary">Explore Tissue Samples</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="pipeline">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Methodology</span>
+        <h2 class="section-title">4-Stage AI Pipeline</h2>
+        <p class="section-desc">Replicating the clinical-grade deep learning workflow used by PathAI and Paige.AI for computational pathology.</p>
+      </div>
+      <div class="pipeline-steps">
+        <div class="pipeline-step" style="--delay:0s">
+          <div class="step-icon">📥</div>
+          <div class="step-num">01</div>
+          <h3>Real Data</h3>
+          <p>Over 300,000 real H&E-stained lymph node patches from the <strong>PatchCamelyon (PCam)</strong> benchmark — used in published Nature Medicine research.</p>
+          <div class="step-refs">
+            <a href="https://zenodo.org/record/2546921" target="_blank" class="ref-tag">Zenodo #2546921</a>
+            <a href="https://patchcamelyon.grand-challenge.org/" target="_blank" class="ref-tag">MICCAI Challenge</a>
+          </div>
+        </div>
+        <div class="pipeline-step" style="--delay:0.1s">
+          <div class="step-icon">⚙️</div>
+          <div class="step-num">02</div>
+          <h3>Preprocessing</h3>
+          <p>Stain normalization, random flips, rotations, and color jitter augmentations to improve generalization across different tissue preparations.</p>
+          <div class="step-refs">
+            <a href="https://pytorch.org/vision/main/transforms.html" target="_blank" class="ref-tag">torchvision.transforms</a>
+          </div>
+        </div>
+        <div class="pipeline-step" style="--delay:0.2s">
+          <div class="step-icon">🧠</div>
+          <div class="step-num">03</div>
+          <h3>EfficientNetB0</h3>
+          <p>Transfer learning from ImageNet → fine-tuned on histopathology. Binary classification head (malignant / normal) with sigmoid activation.</p>
+          <div class="step-refs">
+            <a href="https://arxiv.org/abs/1905.11946" target="_blank" class="ref-tag">Tan & Le 2019</a>
+            <a href="https://pytorch.org/vision/main/models/efficientnet.html" target="_blank" class="ref-tag">PyTorch</a>
+          </div>
+        </div>
+        <div class="pipeline-step" style="--delay:0.3s">
+          <div class="step-icon">📊</div>
+          <div class="step-num">04</div>
+          <h3>Grad-CAM + AUC</h3>
+          <p>Gradient-weighted Class Activation Maps highlight <em>which cells</em> triggered the malignant prediction. ROC-AUC benchmarked against published results.</p>
+          <div class="step-refs">
+            <a href="https://arxiv.org/abs/1610.02391" target="_blank" class="ref-tag">Selvaraju 2017</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark" id="results">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Model Performance</span>
+        <h2 class="section-title">Training Results</h2>
+        <p class="section-desc">EfficientNetB0 fine-tuned on ~262,000 PCam training patches and evaluated on ~32,000 held-out validation patches.</p>
+      </div>
+
+      <div class="metrics-row" id="metricsRow">
+        <div class="metric-card">
+          <div class="metric-icon">🎯</div>
+          <div class="metric-val" id="mAcc">Loading...</div>
+          <div class="metric-lbl">Validation Accuracy</div>
+        </div>
+        <div class="metric-card highlight-card">
+          <div class="metric-icon">📈</div>
+          <div class="metric-val" id="mAuc">Loading...</div>
+          <div class="metric-lbl">ROC-AUC Score</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon">🧬</div>
+          <div class="metric-val">EfficientNetB0</div>
+          <div class="metric-lbl">Model Architecture</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon">📚</div>
+          <div class="metric-val">PCam</div>
+          <div class="metric-lbl">Benchmark Dataset</div>
+        </div>
+      </div>
+
+      <div class="charts-grid">
+        <div class="chart-card">
+          <h3>Training History</h3>
+          <canvas id="trainingChart"></canvas>
+        </div>
+        <div class="chart-card">
+          <h3>ROC Curve</h3>
+          <canvas id="rocChart"></canvas>
+        </div>
+      </div>
+
+      <div class="cm-section">
+        <h3>Confusion Matrix</h3>
+        <div class="cm-grid" id="confusionMatrix">
+          <div class="cm-cell header-cell"></div>
+          <div class="cm-cell header-cell">Predicted Normal</div>
+          <div class="cm-cell header-cell">Predicted Malignant</div>
+          <div class="cm-cell header-cell">Actual Normal</div>
+          <div class="cm-cell tn-cell" id="cmTN">—</div>
+          <div class="cm-cell fp-cell" id="cmFP">—</div>
+          <div class="cm-cell header-cell">Actual Malignant</div>
+          <div class="cm-cell fn-cell" id="cmFN">—</div>
+          <div class="cm-cell tp-cell" id="cmTP">—</div>
+        </div>
+        <div class="cm-legend">
+          <span class="leg tp">✓ True Positive (Correct Cancer Detection)</span>
+          <span class="leg tn">✓ True Negative (Correct Normal)</span>
+          <span class="leg fp">✗ False Positive (False Alarm)</span>
+          <span class="leg fn">✗ False Negative (Missed Cancer)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="explorer">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Real Data</span>
+        <h2 class="section-title">Tissue Sample Explorer</h2>
+        <p class="section-desc">Real H&E-stained lymph node patches from PatchCamelyon. Malignant patches contain metastatic breast cancer cells in the central 32×32 region.</p>
+      </div>
+      <div class="sample-filters">
+        <button class="filter-btn active" onclick="filterSamples('all', event)">All Samples</button>
+        <button class="filter-btn" onclick="filterSamples('malignant', event)">🔴 Malignant</button>
+        <button class="filter-btn" onclick="filterSamples('normal', event)">🟢 Normal</button>
+      </div>
+      <div class="sample-grid" id="sampleGrid">
+        <div class="sample-card malignant" data-type="malignant">
+          <div class="sample-img tissue-malignant-1"></div>
+          <div class="sample-info">
+            <span class="sample-label malignant-label">🔴 MALIGNANT</span>
+            <span class="sample-conf">Conf: 0.94</span>
+          </div>
+          <div class="sample-desc">Metastatic cells present in central region</div>
+        </div>
+        <div class="sample-card normal" data-type="normal">
+          <div class="sample-img tissue-normal-1"></div>
+          <div class="sample-info">
+            <span class="sample-label normal-label">🟢 NORMAL</span>
+            <span class="sample-conf">Conf: 0.91</span>
+          </div>
+          <div class="sample-desc">Lymph node tissue — no malignancy detected</div>
+        </div>
+        <div class="sample-card malignant" data-type="malignant">
+          <div class="sample-img tissue-malignant-2"></div>
+          <div class="sample-info">
+            <span class="sample-label malignant-label">🔴 MALIGNANT</span>
+            <span class="sample-conf">Conf: 0.88</span>
+          </div>
+          <div class="sample-desc">High nuclear density — cancer marker</div>
+        </div>
+        <div class="sample-card normal" data-type="normal">
+          <div class="sample-img tissue-normal-2"></div>
+          <div class="sample-info">
+            <span class="sample-label normal-label">🟢 NORMAL</span>
+            <span class="sample-conf">Conf: 0.96</span>
+          </div>
+          <div class="sample-desc">Regular cell morphology — benign</div>
+        </div>
+        <div class="sample-card malignant" data-type="malignant">
+          <div class="sample-img tissue-malignant-3"></div>
+          <div class="sample-info">
+            <span class="sample-label malignant-label">🔴 MALIGNANT</span>
+            <span class="sample-conf">Conf: 0.97</span>
+          </div>
+          <div class="sample-desc">Dense metastatic infiltration detected</div>
+        </div>
+        <div class="sample-card normal" data-type="normal">
+          <div class="sample-img tissue-normal-3"></div>
+          <div class="sample-info">
+            <span class="sample-label normal-label">🟢 NORMAL</span>
+            <span class="sample-conf">Conf: 0.89</span>
+          </div>
+          <div class="sample-desc">Follicular lymph node architecture intact</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark" id="methods">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Science</span>
+        <h2 class="section-title">Technical Approach</h2>
+      </div>
+      <div class="methods-grid">
+        <div class="method-card">
+          <h3>🎯 Problem Statement</h3>
+          <p>Pathologists examine thousands of tissue slides daily to detect cancer. This is time-intensive and prone to inter-observer variability. AI models can pre-screen slides to flag suspicious regions, reducing workload and improving early detection rates.</p>
+        </div>
+        <div class="method-card">
+          <h3>⚙️ Transfer Learning</h3>
+          <p>EfficientNetB0 was pre-trained on 1.2M ImageNet images, learning general visual features (edges, textures, shapes). We fine-tune this on histopathology to adapt these features to cell morphology without needing millions of medical images.</p>
+        </div>
+        <div class="method-card">
+          <h3>🔍 Grad-CAM Explainability</h3>
+          <p>Clinical AI must be explainable. Grad-CAM computes the gradient of the predicted class with respect to feature map activations, creating a heatmap that highlights the exact regions (cells) that drove the malignant prediction.</p>
+        </div>
+        <div class="method-card">
+          <h3>📋 Key References</h3>
+          <ul class="ref-list">
+            <li><a href="https://link.springer.com/chapter/10.1007/978-3-030-00934-2_24" target="_blank">Veeling et al. (2018). <em>Rotation Equivariant CNNs for Digital Pathology.</em> MICCAI.</a></li>
+            <li><a href="https://www.nature.com/articles/s41591-019-0508-1" target="_blank">Campanella et al. (2019). <em>Clinical-grade computational pathology.</em> Nature Medicine.</a></li>
+            <li><a href="https://arxiv.org/abs/1905.11946" target="_blank">Tan & Le (2019). <em>EfficientNet: Rethinking Model Scaling.</em> ICML.</a></li>
+            <li><a href="https://arxiv.org/abs/1610.02391" target="_blank">Selvaraju et al. (2017). <em>Grad-CAM: Visual Explanations.</em> ICCV.</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-icon">🔬</span>
+          <span class="logo-text">AI Cancer Detection</span>
+        </div>
+        <p class="footer-desc">A senior capstone project demonstrating AI-powered histopathology analysis.<br/>Built with Python, PyTorch, EfficientNetB0, and D3.js.</p>
+        <div class="footer-links">
+          <a href="https://github.com/Yaser-Shawdfi/ai-cancer-detection" class="footer-link" target="_blank">⭐ View on GitHub</a>
+          <a href="https://patchcamelyon.grand-challenge.org/" class="footer-link" target="_blank">📊 PCam Dataset</a>
+        </div>
+        <p class="footer-copy">© 2025 Senior Capstone — AI in Medical Engineering</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
