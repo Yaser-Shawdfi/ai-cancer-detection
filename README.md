@@ -67,5 +67,23 @@ Training progress is monitored via real-time TensorBoard logs (`results/logs/`).
 
 ---
 
+## Data Sources
+
+| Source | Description | Link |
+|--------|-------------|------|
+| **PatchCamelyon (PCam)** | 327,680 color images (96x96px) of H&E-stained lymph node sections. | [Zenodo #2546921](https://zenodo.org/record/2546921) |
+| **Grand Challenge** | Original MICCAI challenge documentation and leaderboards. | [PCam Challenge](https://patchcamelyon.grand-challenge.org/) |
+
+---
+
+## References
+
+1. Veeling et al. (2018). *Rotation Equivariant CNNs for Digital Pathology.* **MICCAI.**
+2. Campanella et al. (2019). *Clinical-grade computational pathology using weakly supervised deep learning on whole slide images.* **Nature Medicine.**
+3. Tan & Le (2019). *EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks.* **ICML.**
+4. Selvaraju et al. (2017). *Grad-CAM: Visual Explanations from Deep Networks via Gradient-based Localization.* **ICCV.**
+
+---
+
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
