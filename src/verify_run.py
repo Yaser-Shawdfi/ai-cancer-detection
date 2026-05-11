@@ -55,7 +55,7 @@ def run_verification():
     try:
         # Ignore strict formatting for now (line lengths, etc) to focus on major issues
         result = subprocess.run(
-            ["flake8", str(root_dir / "src"), "--ignore=E501,E402,E731,F401,W503,E702"],
+            [sys.executable, "-m", "flake8", str(root_dir / "src"), "--ignore=E501,E402,E731,F401,W503,E702"],
             capture_output=True, text=True
         )
         if result.returncode != 0:
