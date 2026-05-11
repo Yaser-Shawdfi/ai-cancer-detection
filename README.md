@@ -78,10 +78,10 @@ Training progress is monitored via real-time TensorBoard logs (`results/logs/`).
 
 ## References
 
-1. Veeling et al. (2018). *Rotation Equivariant CNNs for Digital Pathology.* **MICCAI.**
-2. Campanella et al. (2019). *Clinical-grade computational pathology using weakly supervised deep learning on whole slide images.* **Nature Medicine.**
-3. Tan & Le (2019). *EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks.* **ICML.**
-4. Selvaraju et al. (2017). *Grad-CAM: Visual Explanations from Deep Networks via Gradient-based Localization.* **ICCV.**
+1. [Veeling et al. (2018). *Rotation Equivariant CNNs for Digital Pathology.* **MICCAI.**](https://link.springer.com/chapter/10.1007/978-3-030-00934-2_24)
+2. [Campanella et al. (2019). *Clinical-grade computational pathology using weakly supervised deep learning on whole slide images.* **Nature Medicine.**](https://www.nature.com/articles/s41591-019-0508-1)
+3. [Tan & Le (2019). *EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks.* **ICML.**](https://arxiv.org/abs/1905.11946)
+4. [Selvaraju et al. (2017). *Grad-CAM: Visual Explanations from Deep Networks via Gradient-based Localization.* **ICCV.**](https://arxiv.org/abs/1610.02391)
 
 ---
 
