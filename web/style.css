@@ -197,22 +197,7 @@ a:hover { color: var(--accent-cyan); }
 .sample-card.hidden { display: none; }
 .sample-img {
   height: 180px; background-size: cover; background-position: center;
-  position: relative; display: flex; align-items: center; justify-content: center;
-}
-.diagnostic-marker {
-  width: 33.33%; height: 33.33%;
-  border: 2px solid var(--accent-red);
-  border-radius: 4px;
-  box-shadow: 0 0 10px rgba(248, 113, 113, 0.4);
   position: relative;
-}
-.diagnostic-marker::after {
-  content: 'Tumor Region';
-  position: absolute; top: -18px; left: 50%;
-  transform: translateX(-50%);
-  font-size: 0.6rem; color: var(--accent-red);
-  font-weight: 700; white-space: nowrap;
-  text-shadow: 0 1px 2px #000;
 }
 .tissue-malignant-1 { background-image: url('samples/malignant_1.jpg'); }
 .tissue-malignant-2 { background-image: url('samples/malignant_2.jpg'); }
