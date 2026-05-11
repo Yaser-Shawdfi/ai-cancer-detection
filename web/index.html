@@ -170,7 +170,7 @@
       <div class="section-header">
         <span class="section-tag">Real Data</span>
         <h2 class="section-title">Tissue Sample Explorer</h2>
-        <p class="section-desc">Real H&E-stained lymph node patches from PatchCamelyon. Malignant patches contain metastatic breast cancer cells in the central 32×32 region.</p>
+        <p class="section-desc">Real H&E-stained lymph node patches from PatchCamelyon. The <strong>red box</strong> indicates the central diagnostic region where metastatic breast cancer cells were identified.</p>
       </div>
       <div class="sample-filters">
         <button class="filter-btn active" onclick="filterSamples('all', event)">All Samples</button>
@@ -179,7 +179,9 @@
       </div>
       <div class="sample-grid" id="sampleGrid">
         <div class="sample-card malignant" data-type="malignant">
-          <div class="sample-img tissue-malignant-1"></div>
+          <div class="sample-img tissue-malignant-1">
+            <div class="diagnostic-marker"></div>
+          </div>
           <div class="sample-info">
             <span class="sample-label malignant-label">MALIGNANT</span>
             <span class="sample-conf">Conf: 0.94</span>
@@ -195,7 +197,9 @@
           <div class="sample-desc">Lymph node tissue — no malignancy detected</div>
         </div>
         <div class="sample-card malignant" data-type="malignant">
-          <div class="sample-img tissue-malignant-2"></div>
+          <div class="sample-img tissue-malignant-2">
+            <div class="diagnostic-marker"></div>
+          </div>
           <div class="sample-info">
             <span class="sample-label malignant-label">MALIGNANT</span>
             <span class="sample-conf">Conf: 0.88</span>
@@ -211,7 +215,9 @@
           <div class="sample-desc">Regular cell morphology — benign</div>
         </div>
         <div class="sample-card malignant" data-type="malignant">
-          <div class="sample-img tissue-malignant-3"></div>
+          <div class="sample-img tissue-malignant-3">
+            <div class="diagnostic-marker"></div>
+          </div>
           <div class="sample-info">
             <span class="sample-label malignant-label">MALIGNANT</span>
             <span class="sample-conf">Conf: 0.97</span>
@@ -227,7 +233,9 @@
           <div class="sample-desc">Follicular lymph node architecture intact</div>
         </div>
         <div class="sample-card malignant" data-type="malignant">
-          <div class="sample-img tissue-malignant-4"></div>
+          <div class="sample-img tissue-malignant-4">
+            <div class="diagnostic-marker"></div>
+          </div>
           <div class="sample-info">
             <span class="sample-label malignant-label">MALIGNANT</span>
             <span class="sample-conf">Conf: 0.95</span>
@@ -243,7 +251,9 @@
           <div class="sample-desc">Homogeneous tissue pattern observed</div>
         </div>
         <div class="sample-card malignant" data-type="malignant">
-          <div class="sample-img tissue-malignant-5"></div>
+          <div class="sample-img tissue-malignant-5">
+            <div class="diagnostic-marker"></div>
+          </div>
           <div class="sample-info">
             <span class="sample-label malignant-label">MALIGNANT</span>
             <span class="sample-conf">Conf: 0.91</span>
@@ -259,7 +269,9 @@
           <div class="sample-desc">Consistent cell-to-stroma ratio</div>
         </div>
         <div class="sample-card malignant" data-type="malignant">
-          <div class="sample-img tissue-malignant-6"></div>
+          <div class="sample-img tissue-malignant-6">
+            <div class="diagnostic-marker"></div>
+          </div>
           <div class="sample-info">
             <span class="sample-label malignant-label">MALIGNANT</span>
             <span class="sample-conf">Conf: 0.89</span>
